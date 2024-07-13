@@ -28,7 +28,6 @@ export const CompanyRow = memo(({ company }: PropsType) => {
     },
     [company.id, dispatch]
   );
-  console.log(company.id);
 
   return (
     <Tr $isActive={company.isSelected}>

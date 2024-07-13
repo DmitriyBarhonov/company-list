@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CompaniesState } from "../type/company-row-type";
 
-const companies = Array.from({ length: 10000}, (_, index) => ({
+const companies = Array.from({ length: 100}, (_, index) => ({
   id: index,
   name: `Company ${index + 1}`,
   address: `Address ${index + 1}`,
   isSelected: false,
-}));
+})).reverse();
 
 
 const initialState: CompaniesState = {
@@ -57,7 +57,7 @@ const companiesSlice = createSlice({
       action: PayloadAction<{ name: string; address: string }>
     ) {
       const id = state.companies.length
-        ? state.companies[state.companies.length - 1].id + 1
+        ? state.companies[0].id + 1
         : 0;
       const newCompany = {
         id,
@@ -65,7 +65,7 @@ const companiesSlice = createSlice({
         address: action.payload.address,
         isSelected: false,
       };
-      state.companies.push(newCompany);
+      state.companies.unshift(newCompany);
     },
     deleteSelectedCompanies(state) {
       state.allSelected = false;
