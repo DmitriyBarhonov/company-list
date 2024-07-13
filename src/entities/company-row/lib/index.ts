@@ -1,0 +1,1 @@
+export * from './style/company-row-style'

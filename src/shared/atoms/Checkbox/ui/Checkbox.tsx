@@ -1,17 +1,11 @@
 import React, { memo } from "react";
-import { EditableSpanStyle } from "../lib/checkbox-style";
+import { CheckboxProps } from "../model";
+import { CheckboxStyle } from "../lib";
  
-
-interface CheckboxProps {
-  checked: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  label?: string;
-}
-
 export const Checkbox: React.FC<CheckboxProps> = memo(
   ({ checked, onChange }) => {
     const { CheckboxContainer, HiddenCheckbox, StyledCheckbox } =
-      EditableSpanStyle;
+    CheckboxStyle;
     return (
       <CheckboxContainer>
         <HiddenCheckbox type="checkbox" checked={checked} onChange={onChange} />

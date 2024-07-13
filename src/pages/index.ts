@@ -1,1 +1,1 @@
-export {}
+export * from "./companies-page"

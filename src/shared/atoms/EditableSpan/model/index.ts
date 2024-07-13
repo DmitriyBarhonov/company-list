@@ -1,0 +1,1 @@
+export * from './type/editable-span-type'

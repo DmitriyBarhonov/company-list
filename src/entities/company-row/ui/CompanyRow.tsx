@@ -2,17 +2,12 @@ import { memo, useCallback } from "react";
 import {
   editCompanyAddress,
   editCompanyName,
+  PropsType,
   toggleSelect,
-} from "../model/slice/companiesSlice";
-import { EditableSpan } from "../../../shared/atoms/EditableSpan/ui/EditableSpan";
-import { Company } from "../model/type/company-row-type";
-import { useAppDispatch } from "../../../app/appHooks";
-import { companyRowStyle } from "../lib/style/company-row-style";
-import { Checkbox } from "../../../shared/atoms/Checkbox/ui/Checkbox";
-
-type PropsType = {
-  company: Company;
-};
+} from "../model";
+import { useAppDispatch } from "../../../app";
+import { companyRowStyle } from "../lib";
+import { Checkbox, EditableSpan } from "../../../shared";
 
 export const CompanyRow = memo(({ company }: PropsType) => {
   const dispatch = useAppDispatch();
@@ -33,7 +28,7 @@ export const CompanyRow = memo(({ company }: PropsType) => {
     },
     [company.id, dispatch]
   );
-console.log(company.id);
+  console.log(company.id);
 
   return (
     <Tr $isActive={company.isSelected}>

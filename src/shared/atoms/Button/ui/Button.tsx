@@ -1,12 +1,7 @@
 import React from "react";
-import { EditableSpanStyle } from "../lib/button-style";
 
-interface ButtonProps {
-  label: string;
-  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  type?: "button" | "submit" | "reset";
-  disabled?: boolean;
-}
+import { ButtonProps } from "../model";
+import { ButtonStyle } from "../lib";
 
 export const Button: React.FC<ButtonProps> = ({
   label,
@@ -14,7 +9,7 @@ export const Button: React.FC<ButtonProps> = ({
   type = "button",
   disabled = false,
 }) => {
-  const { Button } = EditableSpanStyle;
+  const { Button } = ButtonStyle;
   return (
     <Button type={type} onClick={onClick} disabled={disabled}>
       {label}

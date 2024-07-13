@@ -1,13 +1,10 @@
 import { ChangeEvent, memo, useState } from "react";
-import { Input } from "../../Input/ui/Input";
+import { EditableSpanPropsType } from "../model";
+import { EditableSpanStyle } from "../lib";
+import { Input } from "../../Input";
 import { EditIcon } from "./Edit";
-import { EditableSpanStyle } from "../lib/editable-span-style";
 
-type EditableSpanPropsType = {
-  value: string;
-  onChange: (newValue: string) => void;
-  labelInfo?: string;
-};
+
 
 export const EditableSpan = memo(
   ({ value, onChange, labelInfo }: EditableSpanPropsType) => {

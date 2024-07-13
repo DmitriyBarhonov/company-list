@@ -1,10 +1,10 @@
 import { ChangeEvent, useState } from "react";
+import { useAppDispatch } from "../../../app";
+import { AddCompanyFormStyle } from "../lib";
+import { addCompany } from "../../../entities";
+import { Button, Input } from "../../../shared";
 
-import { addCompany } from "../../../entities/company-row/model/slice/companiesSlice";
-import { useAppDispatch } from "../../../app/appHooks";
-import { Input } from "../../../shared/atoms/Input/ui/Input";
-import { Button } from "../../../shared/atoms/Button/ui/Button";
-import { AddCompanyFormStyle } from "../lib/add-company-form-style";
+ 
 
 export const AddCompanyForm = () => {
   const [name, setName] = useState("");

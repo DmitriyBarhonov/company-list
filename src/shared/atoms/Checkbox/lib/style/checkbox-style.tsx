@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
  
-export const EditableSpanStyle = {
+export const CheckboxStyle = {
   CheckboxContainer: styled.label`
     display: inline-flex;
     align-items: center;

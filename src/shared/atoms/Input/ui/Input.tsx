@@ -1,6 +1,6 @@
-import { inputStyle } from "../lib/input-style";
-import { InputPropsModel } from "../model/input-type";
-
+import { inputStyle } from "../lib/style/input-style";
+import { InputPropsModel } from "../model";
+ 
 export const Input = ({
   labelInfo,
   type = "text",

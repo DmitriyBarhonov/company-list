@@ -1,17 +1,10 @@
 import React, { useCallback } from "react";
-import {
-  deleteSelectedCompanies,
-  toggleSelectAll,
-} from "../../../entities/company-row/model/slice/companiesSlice";
-import { useAppDispatch, useAppSelector } from "../../../app/appHooks";
-import { CompanyRow } from "../../../entities/company-row/ui/CompanyRow";
-import { Button } from "../../../shared/atoms/Button/ui/Button";
-import { Checkbox } from "../../../shared/atoms/Checkbox/ui/Checkbox";
-import { CompaniesTableStyle } from "../lib/companies-table-style";
+import { useAppDispatch, useAppSelector } from "../../../app";
+import { CompaniesTableStyle, useScrollCompaniesTable } from "../lib";
+import { CompanyRow, deleteSelectedCompanies, toggleSelectAll } from "../../../entities";
+import { Button, Checkbox } from "../../../shared";
 
-import { useScrollCompaniesTable } from "../model/useScrollCompaniesTable";
-
-const CompaniesTable = () => {
+export const CompaniesTable = () => {
   const companies = useAppSelector((state) => state.companies.companies);
   const allSelected = useAppSelector((state) => state.companies.allSelected);
   const dispatch = useAppDispatch();
@@ -53,4 +46,3 @@ const CompaniesTable = () => {
   );
 };
 
-export default CompaniesTable;

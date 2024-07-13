@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import companiesReducer from "../entities/company-row/model/slice/companiesSlice";
+import companiesReducer from "../entities/company-row/model/slice/companies-slice";
 
 const rootReducer = combineReducers({
   companies: companiesReducer,

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Company } from "../type/company-row-type";
+import { CompaniesState } from "../type/company-row-type";
 
 const companies = Array.from({ length: 100}, (_, index) => ({
   id: index,
@@ -8,10 +8,6 @@ const companies = Array.from({ length: 100}, (_, index) => ({
   isSelected: false,
 }));
 
-interface CompaniesState {
-  companies: Company[];
-  allSelected: boolean;
-}
 
 const initialState: CompaniesState = {
   companies,

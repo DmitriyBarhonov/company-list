@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Company } from "../../../entities/company-row/model/type/company-row-type";
+import { Company } from "../../../../entities/company-row/model/type/company-row-type";
 
 export const useScrollCompaniesTable = (companies: Company[]) => {
   const [loadedItems, setLoadedItems] = useState<number>(40);
