@@ -83,4 +83,4 @@ export const {
   deleteSelectedCompanies,
 } = companiesSlice.actions;
 
-export default companiesSlice.reducer;
+export const companiesReducer = companiesSlice.reducer;
