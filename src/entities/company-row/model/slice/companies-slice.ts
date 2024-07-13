@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CompaniesState } from "../type/company-row-type";
 
-const companies = Array.from({ length: 100}, (_, index) => ({
+const companies = Array.from({ length: 10000}, (_, index) => ({
   id: index,
   name: `Company ${index + 1}`,
   address: `Address ${index + 1}`,
