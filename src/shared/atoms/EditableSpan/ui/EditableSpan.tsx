@@ -1,15 +1,19 @@
 import { ChangeEvent, memo, useState } from "react";
+import { Input } from "../../Input/ui/Input";
+import { EditIcon } from "./Edit";
+import { EditableSpanStyle } from "../lib/editable-span-style";
 
 type EditableSpanPropsType = {
   value: string;
   onChange: (newValue: string) => void;
+  labelInfo?: string;
 };
 
 export const EditableSpan = memo(
-  ({ value, onChange }: EditableSpanPropsType) => {
+  ({ value, onChange, labelInfo }: EditableSpanPropsType) => {
     let [editMode, setEditMode] = useState(false);
     let [valueInput, setValueInput] = useState(value);
-
+    const { Edit } = EditableSpanStyle;
     const activateEditMode = () => {
       setEditMode(true);
       setValueInput(value);
@@ -23,14 +27,20 @@ export const EditableSpan = memo(
     };
 
     return editMode ? (
-      <input
+      <Input
+        labelInfo={labelInfo || ""}
         value={valueInput}
         onChange={changeValue}
         autoFocus
         onBlur={activateViewMode}
       />
     ) : (
-      <span onDoubleClick={activateEditMode}>{value || "..."}</span>
+      <>
+        <span>{value || "..."}</span>
+        <Edit onClick={activateEditMode}>
+          <EditIcon />
+        </Edit>
+      </>
     );
   }
 );

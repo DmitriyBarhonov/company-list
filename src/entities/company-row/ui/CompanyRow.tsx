@@ -1,20 +1,22 @@
-import { useCallback } from "react";
+import { memo, useCallback } from "react";
 import {
   editCompanyAddress,
   editCompanyName,
   toggleSelect,
 } from "../model/slice/companiesSlice";
-import { EditableSpan } from "../../../shared/ui/EditableSpan";
+import { EditableSpan } from "../../../shared/atoms/EditableSpan/ui/EditableSpan";
 import { Company } from "../model/type/company-row-type";
 import { useAppDispatch } from "../../../app/appHooks";
+import { companyRowStyle } from "../lib/style/company-row-style";
+import { Checkbox } from "../../../shared/atoms/Checkbox/ui/Checkbox";
 
 type PropsType = {
   company: Company;
 };
 
-const CompanyRow = ({ company }: PropsType) => {
+export const CompanyRow = memo(({ company }: PropsType) => {
   const dispatch = useAppDispatch();
-
+  const { Tr, Td } = companyRowStyle;
   const handleSelect = () => {
     dispatch(toggleSelect(company.id));
   };
@@ -33,22 +35,16 @@ const CompanyRow = ({ company }: PropsType) => {
   );
 
   return (
-    <tr style={{ backgroundColor: company.isSelected ? "lightblue" : "white" }}>
-      <td>
-        <input
-          type="checkbox"
-          checked={company.isSelected}
-          onChange={handleSelect}
-        />
-      </td>
-      <td>
+    <Tr $isActive={company.isSelected}>
+      <Td>
+        <Checkbox checked={company.isSelected} onChange={handleSelect} />
+      </Td>
+      <Td>
         <EditableSpan onChange={handleEditName} value={company.name} />
-      </td>
-      <td>
+      </Td>
+      <Td>
         <EditableSpan onChange={handleEditAddress} value={company.address} />
-      </td>
-    </tr>
+      </Td>
+    </Tr>
   );
-};
-
-export default CompanyRow;
+});
